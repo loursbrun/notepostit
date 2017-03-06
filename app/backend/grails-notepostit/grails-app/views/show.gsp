@@ -1,4 +1,4 @@
-<%@ page import="com.example.Vehicle" %>
+<%@ page import="com.example.User" %>
 <html>
 <head>
     <meta name="layout" content="public"/>

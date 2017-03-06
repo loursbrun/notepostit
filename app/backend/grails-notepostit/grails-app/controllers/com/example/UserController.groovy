@@ -16,10 +16,8 @@ class UserController {
     }
 
     def show(User user) {
-        respond user, model: [estimatedValue: valueEstimateService.getEstimate(user)]
+        respond user
     }
-
-
 
 
     def create() {
@@ -44,6 +42,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
+                //flash.message = message(code: 'default.created.message', args: [message(code: 'vehicle.label', default: 'Vehicle'), vehicle.id])
                 redirect user
             }
             '*' { respond user, [status: CREATED] }
@@ -72,6 +71,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
+                //flash.message = message(code: 'default.updated.message', args: [message(code: 'vehicle.label', default: 'Vehicle'), vehicle.id])
                 redirect user
             }
             '*'{ respond user, [status: OK] }
@@ -91,6 +91,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
+                //flash.message = message(code: 'default.deleted.message', args: [message(code: 'vehicle.label', default: 'Vehicle'), vehicle.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -100,6 +101,7 @@ class UserController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
+                //flash.message = message(code: 'default.not.found.message', args: [message(code: 'vehicle.label', default: 'Vehicle'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
