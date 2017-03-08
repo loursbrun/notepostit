@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GroupsView"></activity>
+        <activity android:name=".GroupsView" />
+        <activity android:name=".UserView"></activity>
     </application>
 
 </manifest>

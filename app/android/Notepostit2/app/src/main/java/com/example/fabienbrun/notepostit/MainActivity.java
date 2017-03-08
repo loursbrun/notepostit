@@ -1,9 +1,8 @@
 package com.example.fabienbrun.notepostit;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,14 +13,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Redirection GroupsView
-        Intent i = new Intent(getApplicationContext(), GroupsView.class);
+        //Intent i = new Intent(getApplicationContext(), GroupsView.class);
+        Intent i = new Intent(getApplicationContext(), UserView.class);
         startActivity(i);
-
-
-        Log.i("TAG","TEST !!!");
-
-
-
 
 
 

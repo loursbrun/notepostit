@@ -2,6 +2,7 @@ package com.example.fabienbrun.notepostit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class GroupsView extends AppCompatActivity {
 
@@ -11,7 +12,7 @@ public class GroupsView extends AppCompatActivity {
         setContentView(R.layout.activity_groups_view);
 
 
-        MySingleton.getInstance();
+        Log.i("TAG","MyList Size" + MySingleton.getInstance().groupsList.size());
 
 
     }
