@@ -3,10 +3,17 @@ package com.example.fabienbrun.notepostit;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.fabienbrun.notepostit.user.User;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by fabienbrun on 08/03/2017.
@@ -24,7 +31,7 @@ public class MyHttpAsynClass extends AsyncTask<Integer, Float, String> {
         //String path = "http://api.androidhive.info/contacts/";
         //String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
-        String path = "http://192.168.1.13:8080/groupPublic.json";
+        String path = "http://192.168.1.13:8080/user.json";
 
 
         URL url;
@@ -65,6 +72,20 @@ public class MyHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
 
         return; }
+
+
+
+
+        //Create the type “ArrayList<Album>” with a anonyme class
+        Type listType = new TypeToken<ArrayList<User>>() {}.getType(); //Convert result to objects
+        List<User> list = new Gson().fromJson(result, listType);
+        //Updates the listView
+       // albumAdapter.getAlbums().addAll(list);
+       // albumAdapter.notifyDataSetChanged(); }catch(Exception e){
+       // System.out.println("e " + e); }
+
+        Log.i("TAG","Liste des user récupérée => " + list.toString());
+
 
 
 

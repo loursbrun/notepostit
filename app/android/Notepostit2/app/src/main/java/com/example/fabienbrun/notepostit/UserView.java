@@ -11,7 +11,7 @@ public class UserView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_view);
 
-        Log.i("TAG","User name is : " + MySingleton.getInstance().usersList.get(1).getName());
+        Log.i("TAG","User name is : " + MySingleton.getInstance().usersList.get(1).toString());
 
 
 
