@@ -7,12 +7,23 @@ package com.example.fabienbrun.notepostit.models;
 public class GroupModel {
     private Long id;
     private String title;
+    private String note;
+
 
     public GroupModel() {
     }
 
-    public GroupModel(String movie) {
-        title = movie;
+    public GroupModel(String note, String title) {
+        this.note = note;
+        this.title = title;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getTitle() {
@@ -22,6 +33,7 @@ public class GroupModel {
     public void setTitle(String title) {
         this.title = title;
     }
+
 
     public Long getId() {
         return id;
@@ -33,9 +45,10 @@ public class GroupModel {
 
     @Override
     public String toString() {
-        return "Movie{" +
+        return "GroupModel{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 }

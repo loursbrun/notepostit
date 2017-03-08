@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
         // nom du fichier contenant la base de données
-        private static final String DB_NAME = "groupDB.db";
+        private static final String DB_NAME = "groupDB9.db";
         private static final int DB_VERSION = 8;
 
         public MySQLiteHelper(Context context)

@@ -20,11 +20,14 @@ import com.example.fabienbrun.notepostit.models.GroupModel;
 import java.util.List;
 
 public class GoupsPrivate extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+
     private  SimpleCursorAdapter adapter;
     private MySQLiteHelper sqLiteHelper;
     private SQLiteDatabase db;
 
     private final int IDLOAD = 1;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +36,14 @@ public class GoupsPrivate extends AppCompatActivity implements LoaderManager.Loa
 
         sqLiteHelper = new MySQLiteHelper(this);
 
+
+
         db = sqLiteHelper.getWritableDatabase();
-        GroupDAO.insert(db, new GroupModel("Pulp Fiction"));
+        GroupDAO.insert(db, new GroupModel("Coca","fghjk"));
         db.close();
+
+
+
 
         db = sqLiteHelper.getReadableDatabase();
         List<GroupModel> groups = GroupDAO.getAllGroups(db);
@@ -68,10 +76,14 @@ public class GoupsPrivate extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
+
+
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new MyCursorLoader(getApplicationContext(), db);
     }
+
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
@@ -79,15 +91,23 @@ public class GoupsPrivate extends AppCompatActivity implements LoaderManager.Loa
         adapter.changeCursor(cursor);
     }
 
+
+
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         adapter.changeCursor(null);
     }
 
+
+
+
     public void addGroupTosql(View view) {
         db = sqLiteHelper.getWritableDatabase();
-        GroupDAO.insert(db, new GroupModel("Le roi lion"));
+        GroupDAO.insert(db, new GroupModel("Mon Group","dfghj"));
     }
+
+
+
 
     @Override
     protected void onStop() {

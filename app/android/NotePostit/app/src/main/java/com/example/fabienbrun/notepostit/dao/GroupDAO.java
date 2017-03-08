@@ -14,6 +14,7 @@ import java.util.List;
 
 public class GroupDAO {private static final String TABLE_NAME = "Groups";
     private static final String COLUMN_NAME_TITLE = "title";
+    private static final String COLUMN_NAME_NOTE = "note";
 
     // les méthodes statiques ici ont pour but d'effectuer
     // des requetes SQL pour gérer les données, les tables
@@ -21,18 +22,19 @@ public class GroupDAO {private static final String TABLE_NAME = "Groups";
     public static void create(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + "(" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NAME_TITLE +" TEXT NOT NULL )");
+                COLUMN_NAME_TITLE  + " TEXT NOT NULL," + COLUMN_NAME_NOTE  + " TEXT NOT NULL )");
 
     }
     public static void drop(SQLiteDatabase db) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    public static void insert(SQLiteDatabase db, GroupModel m)
+    public static void insert(SQLiteDatabase db, GroupModel m )
     {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME_TITLE, m.getTitle());
+        values.put(COLUMN_NAME_NOTE, m.getNote());
         values.putNull("_id");
 
         db.insert(TABLE_NAME, null, values);
@@ -45,7 +47,7 @@ public class GroupDAO {private static final String TABLE_NAME = "Groups";
 
     public static void deleteFromTitle(SQLiteDatabase db, String title)
     {
-        db.delete(TABLE_NAME, COLUMN_NAME_TITLE + " = ?", new String[] { title });
+        db.delete(TABLE_NAME, COLUMN_NAME_TITLE  + " = ?", new String[] { title });
     }
 
     public static Cursor getAll(SQLiteDatabase db) {
@@ -68,6 +70,9 @@ public class GroupDAO {private static final String TABLE_NAME = "Groups";
                 group = new GroupModel();
                 group.setId(Long.parseLong(cursor.getString(0)));
                 group.setTitle(cursor.getString(1));
+                group.setNote(cursor.getString(1));
+
+
 
                 groups.add(group);
             } while (cursor.moveToNext());
