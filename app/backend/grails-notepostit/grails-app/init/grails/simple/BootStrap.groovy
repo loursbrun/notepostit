@@ -38,7 +38,7 @@ class BootStrap {
         def note2 = new Note(name: "DEDE" , content: "eeeeeeeeee", urlImg: "cccccccccc.com")
 
 
-        def goup1 = new GroupPublic(name: "Coco")
+        def goup1 = new GroupPublic(name: "Coco", isPublic: true)
         goup1.addToNotes(note1)
         goup1.addToNotes(note2)
         goup1.emails.add("cococo")

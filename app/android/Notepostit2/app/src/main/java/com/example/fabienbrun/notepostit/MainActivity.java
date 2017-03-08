@@ -1,8 +1,9 @@
 package com.example.fabienbrun.notepostit;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.content.Intent;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,8 +12,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent i = new Intent(getApplicationContext(),GoupsPrivate.class);
+
+        // Redirection GroupsView
+        Intent i = new Intent(getApplicationContext(), GroupsView.class);
         startActivity(i);
+
+
+        Log.i("TAG","TEST !!!");
+
+
+
+
+
 
 
     }
