@@ -38,14 +38,44 @@ class BootStrap {
         def note2 = new Note(name: "DEDE" , content: "eeeeeeeeee", urlImg: "cccccccccc.com")
 
 
-        def goup1 = new GroupPublic(name: "Coco", isPublic: true)
-        goup1.addToNotes(note1)
-        goup1.addToNotes(note2)
-        goup1.emails.add("cococo")
-        goup1.emails.add("cvbfdsdfg")
-        goup1.emails.add("sdfgfdsdfgh")
-        goup1.emails.add("xcvccvb")
-        goup1.save()
+        def group1 = new GroupPublic(name: "Coca", isPublic: true)
+        group1.addToNotes(note1)
+        group1.addToNotes(note2)
+        group1.emails.add("cococo")
+        group1.emails.add("cvbfdsdfg")
+        group1.emails.add("sdfgfdsdfgh")
+        group1.emails.add("xcvccvb")
+        group1.save()
+
+        def note3 = new Note(name: "Fabien", content: "fghjkjhgfghjklkjhg", urlImg: "dfgjkjhgfghjkjhgf.com")
+        def note4 = new Note(name: "DEDE" , content: "eeeeeeeeee", urlImg: "cccccccccc.com")
+
+        def group2 = new GroupPublic(name: "Pepsi", isPublic: true)
+        group2.addToNotes(note3)
+        group2.addToNotes(note4)
+        group2.emails.add("cococo")
+        group2.emails.add("cvbfdsdfg")
+        group2.emails.add("sdfgfdsdfgh")
+        group2.emails.add("xcvccvb")
+        group2.save()
+
+        def group3 = new GroupPublic(name: "Fanta", isPublic: true)
+        group3.addToNotes(note1)
+        group3.addToNotes(note2)
+        group3.emails.add("cococo")
+        group3.emails.add("cvbfdsdfg")
+        group3.emails.add("sdfgfdsdfgh")
+        group3.emails.add("xcvccvb")
+        group3.save()
+
+        def group4 = new GroupPublic(name: "Orangina", isPublic: true)
+        group4.addToNotes(note1)
+        group4.addToNotes(note2)
+        group4.emails.add("cococo")
+        group4.emails.add("cvbfdsdfg")
+        group4.emails.add("sdfgfdsdfgh")
+        group4.emails.add("xcvccvb")
+        group4.save()
 
 
 

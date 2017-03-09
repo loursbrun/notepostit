@@ -27,7 +27,7 @@ public class MySingleton {
         Note note2 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",2);
         Note note3 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",3);
 
-        GroupPublic group1 = new GroupPublic("Coca");
+        GroupPublic group1 = new GroupPublic("Cococococ");
         group1.addNote(note1);
         group1.addNote(note2);
         group1.addEmail("fab@hotmail.fr");
@@ -62,9 +62,6 @@ public class MySingleton {
 
         GroupHttpAsynClass groupHttpAsyn = new GroupHttpAsynClass();
         groupHttpAsyn.execute();
-
-
-
 
 
 

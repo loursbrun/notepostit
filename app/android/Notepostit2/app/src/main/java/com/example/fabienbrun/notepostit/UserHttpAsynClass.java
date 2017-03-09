@@ -23,7 +23,7 @@ public class UserHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
     @Override
     protected String doInBackground(Integer... params) {
-        Log.i("TAG", "Result is empty...");
+       //Log.i("TAG", "Result is empty...");
 
         StringBuilder result = null;
         //String path = "http://jsonplaceholder.typicode.com/photos";
@@ -31,7 +31,7 @@ public class UserHttpAsynClass extends AsyncTask<Integer, Float, String> {
         //String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
         //String path = "http://192.168.1.13:8080/user.json";
-        String path = "http://192.168.0.146:8080/projet.json";
+        String path = "http://172.20.10.2:8080/user.json";
 
 
         URL url;
@@ -57,7 +57,7 @@ public class UserHttpAsynClass extends AsyncTask<Integer, Float, String> {
             }
         }
 
-        Log.i("TAG", "Result is empty..." + result.toString());
+        //Log.i("TAG", "Result is empty..." + result.toString());
         return result.toString();
     }
 
@@ -65,7 +65,7 @@ public class UserHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
     @Override
     protected void onPostExecute(String result) { if(result == null || result.isEmpty()) {
-        Log.i("TAG", "Result is complete..." + result);
+        //Log.i("TAG", "Result is complete..." + result);
 
 
 

@@ -17,12 +17,12 @@ public class UserRequestHttpProjet extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        Log.i("TAG", "Result is empty...");
+        //Log.i("TAG", "Result is empty...");
 
         StringBuilder result = null;
         //String path = "http://jsonplaceholder.typicode.com/photos";
         //String path = "http://api.androidhive.info/contacts/";
-        String path = "http://192.168.1.13:8080/user.json";
+        String path = "http://172.20.10.2:8080/user.json";
 
 
         URL url;
@@ -52,7 +52,7 @@ public class UserRequestHttpProjet extends AsyncTask<Void, Void, String> {
             }
         }
 
-        Log.i("TAG", "Result is empty...hohoho" + result.toString());
+        //Log.i("TAG", "Result is empty...hohoho" + result.toString());
 
 
 
