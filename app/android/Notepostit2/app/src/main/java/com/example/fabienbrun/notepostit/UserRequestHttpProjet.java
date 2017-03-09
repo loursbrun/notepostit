@@ -22,7 +22,7 @@ public class UserRequestHttpProjet extends AsyncTask<Void, Void, String> {
         StringBuilder result = null;
         //String path = "http://jsonplaceholder.typicode.com/photos";
         //String path = "http://api.androidhive.info/contacts/";
-        String path = "http://172.20.10.2:8080/user.json";
+        String path = "http://192.168.1.13:8080/user.json";
 
 
         URL url;

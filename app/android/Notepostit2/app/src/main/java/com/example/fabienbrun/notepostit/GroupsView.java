@@ -3,10 +3,14 @@ package com.example.fabienbrun.notepostit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,6 +18,7 @@ public class GroupsView extends AppCompatActivity {
 
     private ArrayAdapter<String> mAdapter;
     private ListView mTaskListView;
+    private View currentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,19 @@ public class GroupsView extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         }
 
+
+
+
+        mTaskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("TAG", "Position=" + position);
+
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
 
@@ -60,19 +78,32 @@ public class GroupsView extends AppCompatActivity {
 
 
 
-
     // Update Task
     protected void onListUpdateClick(View view) {
 
+        currentView = view;
+        View parent = (View) view.getParent();
+        TextView taskTextView = (TextView) parent.findViewById(R.id.task_title);
+        String groupTitle = String.valueOf(taskTextView.getText());
 
-        Intent i = new Intent(getApplicationContext(), NotesView.class);
-        startActivity(i);
+        for (int i = 0; i < MySingleton.getInstance().groupsList.size(); i++) {
+            if( MySingleton.getInstance().groupsList.get(i).getName().toString().equals(groupTitle)){
+                Log.i("TAG", "iiiiiiiii" + i );
+
+                Intent inte = new Intent(view.getContext(), NotesView.class);
+                inte.putExtra("idProjet", i); // key value
+                startActivity(inte);
+
+            }
+
+        }
+
+
+
+
 
 
     }
-
-
-
 
 
 

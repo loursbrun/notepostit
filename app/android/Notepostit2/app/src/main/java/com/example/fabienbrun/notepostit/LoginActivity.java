@@ -40,6 +40,9 @@ public class LoginActivity extends AppCompatActivity {
             GroupHttpAsynClass groupHttpAsyn = new GroupHttpAsynClass();
             groupHttpAsyn.execute();
 
+            NoteHttpAsynClass noteHttpAsyn = new NoteHttpAsynClass();
+            noteHttpAsyn.execute();
+
 
 
 

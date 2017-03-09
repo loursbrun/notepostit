@@ -2,6 +2,7 @@ package com.example.fabienbrun.notepostit;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ public class NotesView extends AppCompatActivity {
 
     private ArrayAdapter<String> mAdapter;
     private ListView mTaskListView;
+    private int projetID ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,22 @@ public class NotesView extends AppCompatActivity {
 
         mTaskListView = (ListView) findViewById(R.id.list_todo);
 
-        Log.i("TAG","Notes !!!!! " + MySingleton.getInstance().notesList.size());
+
+
+
+        // Intent pour récupérer le numéro du projet cliqué
+        // Intent pour récupérer le numéro du projet cliqué
+        Intent i = getIntent();
+        i.getStringExtra("msg");
+        projetID = i.getExtras().getInt("idProjet");
+
+
+
+       // Log.i("TAG","Notes !!!!! " + MySingleton.getInstance().notesList.size());
+
+
+        //Log.i("TAG","Group Id !!!!! " + MySingleton.getInstance().notesList.get(1).getContent().toString());
+
 
 
 
@@ -43,10 +60,14 @@ public class NotesView extends AppCompatActivity {
 
         ArrayList<String> taskList = new ArrayList<>();
 
+            for (int i = 0; i < MySingleton.getInstance().notesList.size(); i++) {
 
-            for (int i = 0; i < MySingleton.getInstance().groupsList.get(0).getNoteListe().size(); i++) {
 
-                taskList.add(MySingleton.getInstance().notesList.get(i).getName().toString());
+                if(MySingleton.getInstance().notesList.get(i).getGroupID() == (projetID + 1)) {
+                    Log.i("TAG","notes id !!!!! " +  MySingleton.getInstance().notesList.get(i));
+                    taskList.add(MySingleton.getInstance().notesList.get(i).getName().toString());
+                }
+
 
             }
 

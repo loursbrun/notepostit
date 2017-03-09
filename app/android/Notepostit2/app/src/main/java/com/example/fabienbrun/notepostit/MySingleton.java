@@ -40,7 +40,7 @@ public class MySingleton {
         group1.addNote(note2);
         group1.addNote(note3);
 
-        for (int ii = 0; ii < 1; ii++) {
+        for (int ii = 0; ii < 10; ii++) {
             groupsList.add(group1);
             groupsList.add(group2);
 
@@ -98,6 +98,9 @@ public class MySingleton {
     }
 
     public void setNotesList(ArrayList<Note> notesList) { this.notesList = notesList; }
+
+
+
 
     @Override
     public String toString() {

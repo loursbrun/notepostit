@@ -31,7 +31,7 @@ public class UserHttpAsynClass extends AsyncTask<Integer, Float, String> {
         //String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
         //String path = "http://192.168.1.13:8080/user.json";
-        String path = "http://172.20.10.2:8080/user.json";
+        String path = "http://192.168.1.13:8080/user.json";
 
 
         URL url;
