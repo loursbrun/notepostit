@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
         // Redirection GroupsView
         //Intent i = new Intent(getApplicationContext(), GroupsView.class);
         //Intent i = new Intent(getApplicationContext(), UserView.class);
+
+
         Intent i = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(i);
 

@@ -28,9 +28,9 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
         StringBuilder result = null;
         //String path = "http://jsonplaceholder.typicode.com/photos";
         //String path = "http://api.androidhive.info/contacts/";
-        //String path = "http://192.168.0.146:8080/projet.json";
+        String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
-        String path = "http://192.168.1.13:8080/GroupPublic.json";
+        //String path = "http://192.168.1.13:8080/GroupPublic.json";
 
 
         URL url;

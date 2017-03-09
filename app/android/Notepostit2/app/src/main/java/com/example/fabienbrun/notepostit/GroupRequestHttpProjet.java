@@ -22,7 +22,8 @@ public class GroupRequestHttpProjet extends AsyncTask<Void, Void, String> {
         StringBuilder result = null;
         //String path = "http://jsonplaceholder.typicode.com/photos";
         //String path = "http://api.androidhive.info/contacts/";
-        String path = "http://192.168.1.13:8080/GroupPublic.json";
+        //String path = "http://192.168.1.13:8080/GroupPublic.json";
+        String path = "http://192.168.0.146:8080/projet.json";
 
 
         URL url;
