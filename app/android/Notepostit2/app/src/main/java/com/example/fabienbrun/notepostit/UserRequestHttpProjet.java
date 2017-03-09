@@ -12,7 +12,7 @@ import java.net.URL;
  * Created by fabienbrun on 08/03/2017.
  */
 
-public class RequestHttpProjet extends AsyncTask<Void, Void, String> {
+public class UserRequestHttpProjet extends AsyncTask<Void, Void, String> {
 
 
     @Override
@@ -82,3 +82,4 @@ public class RequestHttpProjet extends AsyncTask<Void, Void, String> {
     }
 
 }
+

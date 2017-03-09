@@ -22,7 +22,6 @@ public class MySingleton {
 
 
 
-
         // Add Grpous & Notes
         Note note1 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",1);
         Note note2 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",2);
@@ -48,7 +47,7 @@ public class MySingleton {
 
 
         // Add user
-        User user1 = new User(1 , "fab@fghjhgh.fr", "Fabien", "paspass", true);
+        User user1 = new User(1 , "f@f.fr", "Fabien", "paspass", true);
         User user2 = new User(2 , "dodododo@wanadoo.fr", "Cocotte", "lulu", true);
         usersList.add(user1);
         usersList.add(user2);
@@ -58,13 +57,11 @@ public class MySingleton {
 
         // Récupération des données coté serveur
 
-        MyHttpAsynClass myHttpAsyn = new MyHttpAsynClass();
-        myHttpAsyn.execute();
+        UserHttpAsynClass userHttpAsyn = new UserHttpAsynClass();
+        userHttpAsyn.execute();
 
-
-
-
-
+        GroupHttpAsynClass groupHttpAsyn = new GroupHttpAsynClass();
+        groupHttpAsyn.execute();
 
 
 
@@ -85,6 +82,14 @@ public class MySingleton {
         return mySingleton;
     }
 
+
+    public void setUsersList(ArrayList<User> usersList) {
+        this.usersList = usersList;
+    }
+
+    public void setGroupsList(ArrayList<GroupPublic> groupsList) {
+        this.groupsList = groupsList;
+    }
 
     @Override
     public String toString() {
