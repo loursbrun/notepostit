@@ -3,7 +3,7 @@ package com.example.fabienbrun.notepostit;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.fabienbrun.notepostit.group.GroupPublic;
+import com.example.fabienbrun.notepostit.note.Note;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -15,10 +15,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by fabienbrun on 08/03/2017.
+ * Created by fabienbrun on 09/03/2017.
  */
 
-public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
+public class NoteHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
 
     @Override
@@ -31,7 +31,7 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
         //String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
         //String path = "http://192.168.1.13:8080/GroupPublic.json";
-        String path = "http://172.20.10.2:8080/GroupPublic.json";
+        String path = "http://172.20.10.2:8080/note.json";
 
 
         URL url;
@@ -78,8 +78,8 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
 
         //Create the type “ArrayList<Album>” with a anonyme class
-        Type listType = new TypeToken<ArrayList<GroupPublic>>() {}.getType(); //Convert result to objects
-        ArrayList<GroupPublic> list = new Gson().fromJson(result, listType);
+        Type listType = new TypeToken<ArrayList<Note>>() {}.getType(); //Convert result to objects
+        ArrayList<Note> list = new Gson().fromJson(result, listType);
         //Updates the listView
         // albumAdapter.getAlbums().addAll(list);
         // albumAdapter.notifyDataSetChanged(); }catch(Exception e){
@@ -87,7 +87,7 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
         Log.i("TAG","Liste des groupes récupérée => " + list.toString());
 
-        MySingleton.getInstance().setGroupsList(list);
+        MySingleton.getInstance().setNotesList(list);
 
 
 
@@ -108,3 +108,4 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
 
 
 }
+

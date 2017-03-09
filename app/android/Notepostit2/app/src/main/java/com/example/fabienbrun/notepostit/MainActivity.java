@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Redirection GroupsView
+        //Intent i = new Intent(getApplicationContext(), NotesView.class);
         //Intent i = new Intent(getApplicationContext(), GroupsView.class);
         //Intent i = new Intent(getApplicationContext(), UserView.class);
 

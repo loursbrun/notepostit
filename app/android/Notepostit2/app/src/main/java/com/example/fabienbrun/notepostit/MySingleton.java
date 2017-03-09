@@ -15,6 +15,7 @@ public class MySingleton {
 
     public ArrayList<GroupPublic> groupsList = new ArrayList<>();
     public ArrayList<User> usersList = new ArrayList<>();
+    public ArrayList<Note> notesList = new ArrayList<>();
 
 
     private MySingleton() {
@@ -23,13 +24,16 @@ public class MySingleton {
 
 
         // Add Grpous & Notes
-        Note note1 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",1);
-        Note note2 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",2);
-        Note note3 = new Note(1,"nomememe","www.google.fr","ghjhghjhgj",3);
+        Note note1 = new Note(1,"Faire les courses","www.google.fr","ghjhghjhgj",1);
+        Note note2 = new Note(1,"Manger","www.google.fr","ghjhghjhgj",2);
+        Note note3 = new Note(1,"Aller au cinéma","www.google.fr","ghjhghjhgj",3);
+        Note note4 = new Note(1,"Partager","www.google.fr","ghjhghjhgj",4);
 
         GroupPublic group1 = new GroupPublic("Cococococ");
         group1.addNote(note1);
         group1.addNote(note2);
+        group1.addNote(note3);
+        group1.addNote(note3);
         group1.addEmail("fab@hotmail.fr");
 
         GroupPublic group2 = new GroupPublic("Pepsi");
@@ -63,6 +67,11 @@ public class MySingleton {
         GroupHttpAsynClass groupHttpAsyn = new GroupHttpAsynClass();
         groupHttpAsyn.execute();
 
+        NoteHttpAsynClass noteHttpAsyn = new NoteHttpAsynClass();
+        noteHttpAsyn.execute();
+
+
+
 
 
     }
@@ -88,11 +97,14 @@ public class MySingleton {
         this.groupsList = groupsList;
     }
 
+    public void setNotesList(ArrayList<Note> notesList) { this.notesList = notesList; }
+
     @Override
     public String toString() {
         return "MySingleton{" +
                 "groupsList=" + groupsList +
                 ", usersList=" + usersList +
+                ", notesList=" + notesList +
                 '}';
     }
 }

@@ -1,8 +1,10 @@
 package com.example.fabienbrun.notepostit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -37,7 +39,7 @@ public class GroupsView extends AppCompatActivity {
 
         if (mAdapter == null) {
             mAdapter = new ArrayAdapter<>(this,
-                    R.layout.item_todo,
+                    R.layout.group_item,
                     R.id.task_title,
                     taskList);
             mTaskListView.setAdapter(mAdapter);
@@ -55,6 +57,23 @@ public class GroupsView extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+
+
+    // Update Task
+    protected void onListUpdateClick(View view) {
+
+
+        Intent i = new Intent(getApplicationContext(), NotesView.class);
+        startActivity(i);
+
+
+    }
+
+
+
+
 
 
 
