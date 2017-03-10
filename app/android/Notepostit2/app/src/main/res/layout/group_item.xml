@@ -6,6 +6,7 @@
 
     <ImageView
         android:contentDescription="row"
+        android:onClick="shareGroup"
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -31,7 +32,7 @@
 
     <Button
         android:id="@+id/task_delete"
-        android:onClick="deleteTask"
+        android:onClick="deleteGroup"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="@android:drawable/ic_menu_delete"

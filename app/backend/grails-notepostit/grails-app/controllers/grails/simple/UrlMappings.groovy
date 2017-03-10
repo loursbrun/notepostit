@@ -9,6 +9,8 @@ class UrlMappings {
             }
         }
 
+        "/groupPublics"(resources:"groupPublic")
+        "/notes"(resources:"note")
         //"/"(controller:"home")
         "/"(controller:"user")
         "500"(view:'/error')

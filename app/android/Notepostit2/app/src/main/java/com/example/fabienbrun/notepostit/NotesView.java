@@ -3,16 +3,19 @@ package com.example.fabienbrun.notepostit;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.fabienbrun.notepostit.note.Note;
 
 import java.util.ArrayList;
 
@@ -21,6 +24,7 @@ public class NotesView extends AppCompatActivity {
     private ArrayAdapter<String> mAdapter;
     private ListView mTaskListView;
     private int projetID ;
+    private View currentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,6 @@ public class NotesView extends AppCompatActivity {
 
 
 
-
         // Intent pour récupérer le numéro du projet cliqué
         // Intent pour récupérer le numéro du projet cliqué
         Intent i = getIntent();
@@ -39,23 +42,25 @@ public class NotesView extends AppCompatActivity {
         projetID = i.getExtras().getInt("idProjet");
 
 
-
-       // Log.i("TAG","Notes !!!!! " + MySingleton.getInstance().notesList.size());
-
-
-        //Log.i("TAG","Group Id !!!!! " + MySingleton.getInstance().notesList.get(1).getContent().toString());
-
-
-
-
-
         updateUI();
-
 
     }
 
 
     private void updateUI() {
+
+
+
+        // Récupération des données coté serveur
+
+        UserHttpAsynClass userHttpAsyn = new UserHttpAsynClass();
+        userHttpAsyn.execute();
+
+        GroupHttpAsynClass groupHttpAsyn = new GroupHttpAsynClass();
+        groupHttpAsyn.execute();
+
+        NoteHttpAsynClass noteHttpAsyn = new NoteHttpAsynClass();
+        noteHttpAsyn.execute();
 
 
         ArrayList<String> taskList = new ArrayList<>();
@@ -67,7 +72,6 @@ public class NotesView extends AppCompatActivity {
                     Log.i("TAG","notes id !!!!! " +  MySingleton.getInstance().notesList.get(i));
                     taskList.add(MySingleton.getInstance().notesList.get(i).getName().toString());
                 }
-
 
             }
 
@@ -94,6 +98,65 @@ public class NotesView extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add_task:
+                final EditText taskEditText = new EditText(this);
+                AlertDialog dialog = new AlertDialog.Builder(this)
+                        .setTitle("Add a new Note")
+                        .setMessage("")
+                        .setView(taskEditText)
+                        .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String groupName = String.valueOf(taskEditText.getText());
+
+
+
+
+
+
+                                MySingleton.getInstance().addNoteList(new Note(50,"fghjkl","vghjkl","ghjkl",1));
+
+                                updateUI();
+
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .create();
+                dialog.show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
+
+
+    protected void deleteNote(View view) {
+        currentView = view;
+        View parent = (View) view.getParent();
+        TextView taskTextView = (TextView) parent.findViewById(R.id.task_title);
+        String noteTitle = String.valueOf(taskTextView.getText());
+
+        for (int i = 0; i < MySingleton.getInstance().notesList.size(); i++) {
+            if( MySingleton.getInstance().notesList.get(i).getName().toString().equals(noteTitle)){
+
+                MySingleton.getInstance().notesList.remove(i);
+                updateUI();
+
+
+            }
+        }
+    }
+
+
+
 
     // Update Task
     protected void onListUpdateClick(View view) {
@@ -107,10 +170,10 @@ public class NotesView extends AppCompatActivity {
         taskEditText.setText(task);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Add a new task")
+                .setTitle("Update the Note !")
                 .setMessage("What do you want to do next?")
                 .setView(taskEditText)
-                .setIcon(R.drawable.img2)
+                .setIcon(R.drawable.etat1)
                 .setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

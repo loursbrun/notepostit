@@ -23,7 +23,7 @@ public class NoteRequestHttpProjet extends AsyncTask<Void, Void, String> {
         //String path = "http://jsonplaceholder.typicode.com/photos";
         //String path = "http://api.androidhive.info/contacts/";
         //String path = "http://192.168.1.13:8080/GroupPublic.json";
-        String path = "http://192.168.1.13:8080/note.json";
+        String path = "http://172.20.10.2:8080/note.json";
 
 
         URL url;

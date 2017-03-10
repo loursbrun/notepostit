@@ -1,10 +1,12 @@
 package com.example.fabienbrun.notepostit;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.fabienbrun.notepostit.rest.HttpRestAsync;
+
+public class MainActivity extends AppCompatActivity implements HttpRestAsync.OnHttpRestAsyncComplete{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +20,24 @@ public class MainActivity extends AppCompatActivity {
         //Intent i = new Intent(getApplicationContext(), UserView.class);
 
 
-        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(i);
+        //Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+        //startActivity(i);
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new HttpRestAsync(this, getString(R.string.host) + "/groupPublics").execute();
+        new HttpRestAsync(this, getString(R.string.host) + "/groupPublics/3","DELETE",null).execute();
+    }
 
 
 
-
+    @Override
+    public void onComplete(String result) {
+        Log.i("TAG","RESULT:" + result );
     }
 }

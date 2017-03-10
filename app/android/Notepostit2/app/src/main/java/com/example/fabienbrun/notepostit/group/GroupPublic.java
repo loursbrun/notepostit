@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class GroupPublic {
     private String name;
-    private ArrayList<String> emails ;
+    private ArrayList<String> emails = new ArrayList<>();
     private ArrayList<Note> notes = new ArrayList<>();
 
 
@@ -23,9 +23,7 @@ public class GroupPublic {
         this.notes = notes;
     }
 
-    public void setEmails(ArrayList<String> emails) {
-        this.emails = emails;
-    }
+
 
     public ArrayList<String> getEmails() {
         return emails;

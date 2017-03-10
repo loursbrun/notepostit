@@ -31,14 +31,15 @@ public class GroupHttpAsynClass extends AsyncTask<Integer, Float, String> {
         //String path = "http://192.168.0.146:8080/projet.json";
         //String path = "http://172.20.10.2:8080/projet.json";
         //String path = "http://192.168.1.13:8080/GroupPublic.json";
-        String path = "http://192.168.1.13:8080/GroupPublic.json";
+        String path = "http://172.20.10.2:8080/GroupPublic";
 
 
         URL url;
 
         HttpURLConnection connection= null; try {
             url = new URL(path);
-            connection = (HttpURLConnection)url.openConnection(); connection.setRequestProperty("Accept", "application/json");
+            connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestProperty("Accept", "application/json");
             connection.setRequestMethod("GET");
             connection.connect();
             int codeResponse = connection.getResponseCode();
